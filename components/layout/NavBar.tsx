@@ -5,6 +5,9 @@ import Container from "../container";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";
+import SearchInput from "../SearchInput";
+import { ModeToggle } from "../theme-toogle";
+import { NavMenu } from "./NavMenu";
 
 const NavBar = () => {
     const router = useRouter()
@@ -18,9 +21,12 @@ const NavBar = () => {
                     <div className="font-bold text-xl">Atithi</div>
                 </div>
 
+                <SearchInput/>
+
                 <div className="flex gap-3 items-center">
                     <div>
-                        theme
+                        <ModeToggle/>
+                        <NavMenu/>
                     </div>
 
                     <UserButton afterSignOutUrl="/" />
