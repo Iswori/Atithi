@@ -4,6 +4,13 @@ import "./globals.css";
 import {ClerkProvider} from '@clerk/nextjs';
 import NavBar from "@/components/layout/NavBar";
 import { ThemeProvider } from "@/components/theme-provider"
+import Container from "@/components/container";
+import { Toaster } from "@/components/ui/toaster";
+
+
+
+
+
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -39,11 +46,17 @@ export default function RootLayout({
          disableTransitionOnChange
         >
 
+          <Toaster/>
+
       <main className="flex flex-col min-h-screen bg-secondary">
       <NavBar/>
 
       <section className="flex-grow">
-      {children}
+<Container>
+  
+{children}
+
+  </Container>  
       </section>
       </main>
         </ThemeProvider>

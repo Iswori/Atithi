@@ -13,10 +13,11 @@ export const getHomestayById = async (homestayId: string): Promise<Homestay | nu
                 rooms: true,
             },
         });
+        
 
         return homestay || null; // Return null if homestay is not found
     } catch (error) {
-        console.error("Error fetching homestay by ID:", error); // Log the error
-        throw new Error(`Failed to retrieve homestay`);
+        console.log("Fetching homestay with ID:", homestayId); // Log the error
+        // throw new Error(`Failed to retrieve homestay`);
     }
 };

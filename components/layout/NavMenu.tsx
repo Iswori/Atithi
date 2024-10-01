@@ -25,9 +25,9 @@ export function NavMenu() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem className="cursor-pointer flex gap-2 items-center" onClick={() => router.push('/hotel/new')}>
+        <DropdownMenuItem className="cursor-pointer flex gap-2 items-center" onClick={() => router.push('/homestay/new')}>
         <Plus size={15}/> <span>
-         Add Hotels
+         Add Homestay
          </span>
         </DropdownMenuItem>
         <DropdownMenuItem className="cursor-pointer flex gap-2 items-center"  onClick={() => router.push('/my-homestay')}>

@@ -18,38 +18,26 @@ datasource db {
 model Homestay {
   id                  Int       @id @default(autoincrement())
   userId              String
-  email               String    @unique
   title               String    @db.Text
   description         String    @db.Text
   image               String
   locationDescription String    @db.Text
-  gym                 Boolean   @default(false)
-  spa                 Boolean   @default(false)
-  bar                 Boolean   @default(false)
-  laundry             Boolean   @default(false)
-  restaurant          Boolean   @default(false)
-  shopping            Boolean   @default(false)
-  freeParking         Boolean   @default(false)
-  bikeRental          Boolean   @default(false)
-  freeWifi            Boolean   @default(false)
-  movieNights         Boolean   @default(false)
-  swimmingPool        Boolean   @default(false)
-  coffeeShop          Boolean   @default(false)
   addedAt             DateTime  @default(now())
   updatesAt           DateTime  @default(now())
   rooms               Room[]
   bookings            Booking[]
 }
 
+
 model Room {
-  id          Int       @id @default(autoincrement())
-  title       String
-  description String    @db.Text
-  image       String
-  bedCount    Int       @default(0)
-  breakFastPrice Int
-  roomPrice Int
-  homestayId  Int?
+  id                 Int       @id @default(autoincrement())
+  title              String
+  description        String    @db.Text
+  image              String
+  bedCount           Int       @default(0)
+  breakFastPrice     Int
+  roomPrice          Int
+  homestayId         Int?
   homestay    Homestay? @relation(fields: [homestayId], references: [id], onDelete: Cascade)
 
   bookings Booking[]
@@ -77,6 +65,7 @@ model Booking {
   currency String
   totalPrice Int
   paymentStatus Boolean @default(false)
+  paymentIntentId String @unique
 
   @@index([homestayId])
   @@index([roomId])
